@@ -45,6 +45,12 @@ snippet temp
 	#define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
 	typedef tree< pair<int,int>, null_type, less<pair<int,int> >, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
 
+	template<class TEMP>
+	istream &operator >>( istream &in, vector<TEMP> &v ){
+		for( auto &i : v ) in >> i;
+		return in;
+	}
+
 	typedef long long ll;
 	typedef long double ld;
 	const ll MOD = (ll)1e9 + 7 ;
@@ -71,13 +77,6 @@ snippet temp
 	//	freopen("ladder.in","r",stdin);
 	//	freopen("ladder.out","w",stdout);
 		${1:}
-
-
-
-
-
-
-
 
 
 
@@ -140,4 +139,3 @@ snippet temp
 	▐███▄▀▀█████████████████▄░▀▀░░░░▀██▌▄█▀▀░░░▄▄██████
 	▀▀▀▀▀░░░▀▀▀▀▀░░░▀▀▀▀▀▀▀▀▀▀▀░░░░░░░▀▀░░░░░░▀▀▀▀▀▀▀▀▀
 	*/
-
