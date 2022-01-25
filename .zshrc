@@ -1,4 +1,10 @@
-# The following lines were added by compinstall
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 
 
@@ -26,14 +32,20 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 
-alias ls='ls --color=auto'
-alias ll='ls -l --color=auto'
+alias ls='ls -a --color=auto'
+alias ll='ls -alh --color=auto'
 alias grep='grep --color=auto'
 alias a='./a'
+alias divs='./divs'
+alias stress='./stress.sh'
+alias upapt='sudo apt update && sudo apt upgrade -y'
+alias so='source /home/xsharawi/.zshrc'
 # vi mode
 
+neofetch
+
 sharawi(){
-	com.sh $1
+	stress solution brute
 }
 
 p(){
@@ -45,11 +57,11 @@ vimrc(){
 }
 
 neo(){
-	clear && neofetch && vifm-pause
+	clear && neofetch && vifm-pause && clear
 }
 
 zrc(){
-	vim /home/xsharawi/.zshrc
+	vim /home/xsharawi/.zshrc && so
 }
 
 bindkey -v
@@ -110,3 +122,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 
 
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -7,7 +7,8 @@ set guioptions-=m  "menu bar
 set guioptions-=T  "toolbar
 set guioptions-=r  "scrollbar
 set t_Co=256
-set guifont=DejaVu\ Sans\ Mono\ 12
+" old font set guifont=DejaVu\ Sans\ Mono\ 12
+set guifont=mononoki\ 14
 set tabstop=4
 set shiftwidth=4
 set incsearch
@@ -42,7 +43,8 @@ command W w
 call plug#begin('~/.vim/plugged')
 
 " Multiple Plug commands can be written in a single line using | separators
-
+" cursors
+Plug 'terryma/vim-multiple-cursors'
 " snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " colorshemes
@@ -52,6 +54,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'zefei/vim-wintabs'
 Plug 'zefei/vim-wintabs-powerline'
 Plug 'jremmen/vim-ripgrep'
+Plug 'gabrielsimoes/cfparser.vim'
 Plug 'vifm/vifm.vim'
 " Initialize plugin system
 call plug#end()
@@ -68,8 +71,9 @@ command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
 map <Leader>q <Plug>(wintabs_close)
-map <Leader>w :w<CR> <Plug>(wintabs_close)
+map <Leader>w :w<CR><Plug>(wintabs_close)
 map <Leader>l <Plug>(wintabs_next)
 map <Leader>h <Plug>(wintabs_previous)
 map <Leader>s :nohlsearch<CR>
+map <Leader>c :source /home/xsharawi/vimrc<CR>
 
